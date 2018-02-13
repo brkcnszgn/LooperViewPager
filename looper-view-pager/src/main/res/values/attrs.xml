@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="LooperViewPagerIndicator">
+        <attr name="dotIndicator" format="integer" />
+        <attr name="dotPaddingEnd" format="dimension" />
+        <attr name="dotPaddingStart" format="dimension" />
+    </declare-styleable>
+
+</resources>
