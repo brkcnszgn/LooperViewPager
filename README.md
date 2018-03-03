@@ -1,6 +1,8 @@
 # Looper View Pager
 The Simple Looper View Pager Android Library
 
+![screenshot gif](https://github.com/prongbang/LooperViewPager/blob/master/screenshots/screenshots.gif?raw=true)
+
 ## Download
 > build.gradle
 ```gradle
