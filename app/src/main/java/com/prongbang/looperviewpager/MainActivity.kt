@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import com.prongbang.widget.looperviewpager.LooperFragmentStatePagerAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
@@ -34,6 +35,19 @@ class MainActivity : AppCompatActivity() {
         vpGallery.setCurrentItem(1, false)
 
         vpIndicator.setupWithViewPager(vpGallery, galleries.size)
+
+        val pageSize = galleries.size
+        counter.text = "1/$pageSize"
+        vpIndicator.addOnPageChangeListener(object : ViewPager.OnPageChangeListener{
+            override fun onPageScrollStateChanged(state: Int) {}
+
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
+
+            override fun onPageSelected(position: Int) {
+                counter.text = "$position/$pageSize"
+                Log.i(TAG, "onPageSelected: $position")
+            }
+        })
 
     }
 

@@ -24,6 +24,8 @@ class LooperViewPagerIndicator(context: Context, attrs: AttributeSet) : LinearLa
     private var dotPaddingStart = 10
     private var mDotIndicatorResId = R.drawable.dot_indicator
 
+    private var mOnPageChangeListener: ViewPager.OnPageChangeListener? = null
+
     init {
         val a = context.obtainStyledAttributes(attrs, R.styleable.LooperViewPagerIndicator, 0, 0)
         mDotIndicatorResId = a.getResourceId(R.styleable.LooperViewPagerIndicator_dotIndicator, mDotIndicatorResId)
@@ -32,7 +34,7 @@ class LooperViewPagerIndicator(context: Context, attrs: AttributeSet) : LinearLa
         a.recycle()
     }
 
-    fun setupWithViewPager(viewPager: ViewPager, pageCount:Int) {
+    fun setupWithViewPager(viewPager: ViewPager, pageCount: Int) {
         this.mViewPager = viewPager
         this.mPageCount = pageCount
         initialIndicator()
@@ -55,6 +57,9 @@ class LooperViewPagerIndicator(context: Context, attrs: AttributeSet) : LinearLa
         for (i in 0 until childCount) {
             val view = getChildAt(i)
             view.isSelected = i == index
+            if (i == index) {
+                mOnPageChangeListener?.onPageSelected(index + 1)
+            }
         }
     }
 
@@ -63,11 +68,11 @@ class LooperViewPagerIndicator(context: Context, attrs: AttributeSet) : LinearLa
     }
 
     override fun onPageScrollStateChanged(state: Int) {
-
+        mOnPageChangeListener?.onPageScrollStateChanged(state)
     }
 
     override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
-
+        mOnPageChangeListener?.onPageScrolled(position, positionOffset, positionOffsetPixels)
     }
 
     override fun onPageSelected(position: Int) {
@@ -85,12 +90,14 @@ class LooperViewPagerIndicator(context: Context, attrs: AttributeSet) : LinearLa
         if (pagerPosition == mPageCount + 1) {
             return 0
         }
-        return pagerPosition - 1;
+        return pagerPosition - 1
     }
 
     private fun initialIndicator() {
 
-        if (mPageCount <= 0) { return }
+        if (mPageCount <= 0) {
+            return
+        }
 
         mViewPager?.addOnPageChangeListener(this)
 
@@ -107,5 +114,9 @@ class LooperViewPagerIndicator(context: Context, attrs: AttributeSet) : LinearLa
             view.isSelected = i == 0
             addView(view)
         }
+    }
+
+    fun addOnPageChangeListener(mOnPageChangeListener: ViewPager.OnPageChangeListener) {
+        this.mOnPageChangeListener = mOnPageChangeListener
     }
 }
