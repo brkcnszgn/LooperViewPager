@@ -16,7 +16,7 @@ allprojects {
 ...
 
 dependencies {
-    implementation 'com.github.prongbang:looperviewpager:1.0.1'
+    implementation 'com.github.prongbang:looperviewpager:1.0.2'
 }
 ```
 

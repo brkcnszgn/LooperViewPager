@@ -1,6 +1,5 @@
 package com.prongbang.widget.looperviewpager
 
-import android.os.Parcelable
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
@@ -11,7 +10,7 @@ import com.prongbang.ui.looperviewpager.BuildConfig
 /**
  * Created by prongbang on 2/12/2018 AD.
  */
-abstract class LooperFragmentStatePagerAdapter<T : Parcelable>(fm: FragmentManager, private val pager: ViewPager) : FragmentStatePagerAdapter(fm), ViewPager.OnPageChangeListener {
+abstract class LooperFragmentStatePagerAdapter<T>(fm: FragmentManager, private val pager: ViewPager) : FragmentStatePagerAdapter(fm), ViewPager.OnPageChangeListener {
 
     companion object {
         private var TAG = LooperFragmentStatePagerAdapter::class.java.simpleName
