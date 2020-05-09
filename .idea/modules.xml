@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/LooperViewPager.iml" filepath="$PROJECT_DIR$/LooperViewPager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/LooperViewPager-app.iml" filepath="$PROJECT_DIR$/app/LooperViewPager-app.iml" group="LooperViewPager/app" />
+      <module fileurl="file://$PROJECT_DIR$/looper-view-pager/LooperViewPager-looper-view-pager.iml" filepath="$PROJECT_DIR$/looper-view-pager/LooperViewPager-looper-view-pager.iml" group="LooperViewPager/looper-view-pager" />
+      <module fileurl="file://$PROJECT_DIR$/Workspaces-LooperViewPager.iml" filepath="$PROJECT_DIR$/Workspaces-LooperViewPager.iml" group="LooperViewPager" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/looper-view-pager/looper-view-pager.iml" filepath="$PROJECT_DIR$/looper-view-pager/looper-view-pager.iml" />
     </modules>

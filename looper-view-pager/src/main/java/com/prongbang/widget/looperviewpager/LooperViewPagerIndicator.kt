@@ -1,7 +1,7 @@
 package com.prongbang.widget.looperviewpager
 
 import android.content.Context
-import android.support.v4.view.ViewPager
+import androidx.viewpager.widget.ViewPager
 import android.util.AttributeSet
 import android.view.View
 import android.widget.LinearLayout
@@ -10,13 +10,13 @@ import com.prongbang.ui.looperviewpager.R
 /**
  * Created by prongbang on 2/12/2018 AD.
  */
-class LooperViewPagerIndicator(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs), ViewPager.OnPageChangeListener {
+class LooperViewPagerIndicator(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs), androidx.viewpager.widget.ViewPager.OnPageChangeListener {
 
     private val BIG_SCALE = 1.0f
     private val SMALL_SCALE = 0.7f
     private val DIFF_SCALE = BIG_SCALE - SMALL_SCALE
     private val mContext: Context = context
-    private var mViewPager: ViewPager? = null
+    private var mViewPager: androidx.viewpager.widget.ViewPager? = null
     private var mPageCount: Int = 0
     private var mInitialPage = 0
 
@@ -24,7 +24,7 @@ class LooperViewPagerIndicator(context: Context, attrs: AttributeSet) : LinearLa
     private var dotPaddingStart = 10
     private var mDotIndicatorResId = R.drawable.dot_indicator
 
-    private var mOnPageChangeListener: ViewPager.OnPageChangeListener? = null
+    private var mOnPageChangeListener: androidx.viewpager.widget.ViewPager.OnPageChangeListener? = null
 
     init {
         val a = context.obtainStyledAttributes(attrs, R.styleable.LooperViewPagerIndicator, 0, 0)
@@ -34,7 +34,7 @@ class LooperViewPagerIndicator(context: Context, attrs: AttributeSet) : LinearLa
         a.recycle()
     }
 
-    fun setupWithViewPager(viewPager: ViewPager, pageCount: Int) {
+    fun setupWithViewPager(viewPager: androidx.viewpager.widget.ViewPager, pageCount: Int) {
         this.mViewPager = viewPager
         this.mPageCount = pageCount
         initialIndicator()
@@ -116,7 +116,7 @@ class LooperViewPagerIndicator(context: Context, attrs: AttributeSet) : LinearLa
         }
     }
 
-    fun addOnPageChangeListener(mOnPageChangeListener: ViewPager.OnPageChangeListener) {
+    fun addOnPageChangeListener(mOnPageChangeListener: androidx.viewpager.widget.ViewPager.OnPageChangeListener) {
         this.mOnPageChangeListener = mOnPageChangeListener
     }
 }

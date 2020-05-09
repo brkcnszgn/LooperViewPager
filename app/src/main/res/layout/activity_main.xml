@@ -1,52 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.prongbang.looperviewpager.MainActivity">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	tools:context="com.prongbang.looperviewpager.MainActivity">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+	<androidx.viewpager.widget.ViewPager
+		android:id="@+id/vpGallery"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:overScrollMode="never"
+		app:layout_behavior="@string/appbar_scrolling_view_behavior"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
 
-        <android.support.v4.view.ViewPager
-            android:id="@+id/vpGallery"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:overScrollMode="never"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-    </RelativeLayout>
+	<com.prongbang.widget.looperviewpager.LooperViewPagerIndicator
+		android:id="@+id/vpIndicator"
+		android:layout_width="match_parent"
+		android:layout_height="26dp"
+		android:gravity="center_horizontal"
+		android:orientation="horizontal"
+		app:dotIndicator="@drawable/dot_indicator"
+		app:dotPaddingEnd="10dp"
+		app:dotPaddingStart="10dp"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent" />
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
+	<TextView
+		android:id="@+id/counter"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center_horizontal"
+		android:textAppearance="@style/TextAppearance.AppCompat.Large"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		tools:text="1/5" />
 
-        <com.prongbang.widget.looperviewpager.LooperViewPagerIndicator
-            android:id="@+id/vpIndicator"
-            android:layout_width="match_parent"
-            android:layout_height="26dp"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal"
-            app:dotIndicator="@drawable/dot_indicator"
-            app:dotPaddingEnd="10dp"
-            app:dotPaddingStart="10dp">
-
-        </com.prongbang.widget.looperviewpager.LooperViewPagerIndicator>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/counter"
-            android:gravity="center_horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:text="1/5" />
-    </RelativeLayout>
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
